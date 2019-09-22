@@ -1,0 +1,305 @@
+                                                       ***reverse of a number****
+#include<stdio.h>
+int main(){
+   int num,reverse_number;
+   printf("\nEnter any number:");
+   scanf("%d",&num);
+   reverse_number=reverse_function(num);
+   printf("\nAfter reverse the no is :%d",reverse_number);
+   return 0;
+}
+int sum=0,rem;
+reverse_function(int num){
+   if(num){
+      rem=num%10;
+      sum=sum*10+rem;
+      reverse_function(num/10);
+   }
+   else
+      return sum;
+}
+output:
+enter any number:12345
+after reverse the no is:54321
+
+                                            ***to find whether the substring is present in the string***
+#include <stdio.h>
+#include <string.h>
+
+//function declaration 
+int myStrStr(char * str, char * sub);
+
+
+int main()
+{
+	char str[100]		={0};
+	char strTocheck[10]	={0};
+	
+	printf("Enter complete string: ");
+	scanf("%[^\n]s",str);
+	getchar();	
+	
+	printf("Enter string to check: ");
+	scanf("%[^\n]s",strTocheck);	
+	
+	if(myStrStr(str,strTocheck))
+		printf("String \"%s\" found in \"%s\"\n",strTocheck,str);
+	else
+		printf("String \"%s\" not found in \"%s\"\n",strTocheck,str);
+		
+	return 0;
+}
+int myStrStr(char * str, char * sub)
+{
+	int flag = 0;
+	
+	int i=0,len1=0,len2=0;
+	
+	len1 = strlen(str);
+	len2 = strlen(sub);
+	
+	while(str[i] != '\0')
+	{
+			if(str[i] == sub[0])
+			{
+					if((i+len2)>len1)
+						break;
+						
+					if(strncmp(str+i,sub,len2)==0)
+					{
+						flag = 1;
+						break;
+					}
+			}
+			i++;
+	}
+	
+	return flag;
+}
+output:
+	enter complete string:vijetha
+   enter string to check:vij
+   string vij is found in string vijetha
+   
+                                                   *** create a student structure array***
+
+#include <stdio.h>
+#include <string.h>
+ 
+struct student 
+{
+            int rollno;
+            char name[20];
+};
+ 
+void func(struct student array);
+ 
+int main() 
+{
+            struct student array;
+ 
+            array.rollno=90;
+            strcpy(array.name, "ramesh");
+           // record.percentage = 86.5;
+ 
+            func(array);
+            return 0;
+}
+ 
+void func(struct student array)
+{
+            printf(" rollno is: %d \n", array.rollno);
+            printf(" Name is: %s \n", array.name);
+
+output:rollno is:98
+       name is:ramesh
+       
+                                                       ***print n table***#include<stdio.h>
+#include<conio.h>                                                                       
+{
+void main()
+void table();
+table();
+getch();
+}
+void table()
+{
+int n,i,r;
+printf("enter a no to know table: ");
+scanf("%d",&n);
+for(i=1;i<=10;i++)
+{
+r=n*i;
+printf("%d*%d=%d\n",n,i,r);
+}
+}
+output:enter a no to know table: 2                                                                                                                   
+2*1=2                                                                                                                                         
+2*2=4                                                                                                                                         
+2*3=6                                                                                                                                         
+2*4=8                                                                                                                                         
+2*5=10                                                                                                                                        
+2*6=12                                                                                                                                        
+2*7=14    
+2*8=16
+2*9=18
+2*10=20
+
+                                                   ***occurance of all elements in an array***
+       
+#include<stdio.h>
+#include <conio.h>
+count(int *a,int *b,int n)
+{ 
+    int i,c,j;
+    for(i=0; i<n; i++)
+    {
+        c=1;
+        if(a[i]!=-1)
+		{
+		    for(j=i+1; j<n; j++)
+     
+            {
+        	   if(a[i]==a[j])
+        	    {
+			       c++;
+			       a[j]=-1;
+		       }
+	       }
+	       b[i]=c;
+		}
+    }
+     
+ }
+ 
+ print(int *a,int *b,int n)
+ { 
+    int i;
+    for(i=0; i<n; i++)
+    {
+         
+        if(a[i]!=-1)
+        {
+        	printf("no of %d is %d \n",a[i],b[i]);
+ 
+		} 
+    }
+ 	
+ }
+int main()
+{
+    int a[10000],b[10000],i,n;Enter size of the array : 5                                                                                                                   
+    printf("Enter size of the array : ");
+    scanf("%d", &n);
+ 
+    printf("Enter elements in array : ");
+    for(i=0; i<n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    count(a,b,n);
+    
+	print(a,b,n);   
+    
+	return 0;
+}
+output:Enter elements in array : 2 8 8 6 3                                                                                                           
+no of 2 is 1                                                                                                                                  
+no of 8 is 2                                                                                                                                  
+no of 6 is 1                                                                                                                                  
+no of 3 is 1  
+
+                                                  ***occurance of required element***
+#include <stdio.h>
+#define MAX 100
+int main()
+{
+    int arr[MAX],n,i;
+    int num,count;
+     
+    printf("Enter total number of elements: ");
+    scanf("%d",&n);
+    printf("Enter array elements:\n");
+    for(i=0;i< n;i++)
+    {
+     scanf("%d",&arr[i]);
+    }
+     
+    printf("Enter number to find Occurrence: ");
+    scanf("%d",&num);
+    count=0;
+    for(i=0;i< n;i++)
+    {
+        if(arr[i]==num)
+            count++;
+    }
+    printf("Occurrence of %d is: %d\n",num,count);
+    return 0;
+}               
+output:Enter array elements:                                                                                                                        
+2 6 3 5 3                                                                                                                                    
+Enter number to find Occurrence: 3                                                                                                           
+Occurrence of 3 is: 2   
+
+                                            ***pattern program***
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+    int i, n,j, k, space=10;
+    printf("enter n value");
+    scanf("%d",&n);
+    for (i=0;i<=n;i++)
+    {
+        for (k=0;k<space;k++)
+        {
+        printf(" ");
+        }
+        for (j=0;j<2*i-1;j++)
+        {
+        printf("*");
+        }
+
+        space--;
+        printf("\n");
+    }
+    getch();
+}  
+output:enter n value5                                                                                                                               
+                                                                                                                                             
+         *                                                                                                                                   
+        ***                                                                                                                                  
+       *****                                                                                                                                 
+      *******                                                                                                                                
+     *********    
+     
+     
+ #include <stdio.h>
+int main()
+{
+    int i, j, rows;
+    printf("Enter number of rows : ");
+    scanf("%d", &rows);
+
+    for(i=1; i<=rows; i++)
+    {
+        for(j=1; j<i; j++)
+        {
+            printf(" ");
+        }
+        for(j=1; j<=(rows*2 -(2*i-1)); j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+output:
+Enter number of rows : 3                                                                                                                     
+*****                                                                                                                                        
+ ***                                                                                                                                         
+  *    
+   
